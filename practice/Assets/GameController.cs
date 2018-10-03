@@ -7,6 +7,8 @@ public class GameController : MonoBehaviour
 {
     [SerializeField]
     private UnityEngine.UI.Text scoreLabel;
+    [SerializeField]
+    private GameObject winnerLabelObject;
 
     // Use this for initialization
     void Start()
@@ -19,5 +21,9 @@ public class GameController : MonoBehaviour
     {
         int count = GameObject.FindGameObjectsWithTag("Item").Length;
         scoreLabel.text = count.ToString();
+
+        if (count == 0) {
+            winnerLabelObject.SetActive(true);
+        }
     }
 }
